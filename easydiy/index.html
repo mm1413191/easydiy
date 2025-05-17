@@ -146,8 +146,11 @@
     }
     
     .mode-time {
+      display: block;  /* 確保文字段落獨立顯示 */
       margin-top: 20px;
-      font-size: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;  /* 增加底部間距 */
+      font-size: 18px;  /* 調整字體大小 */
       color: inherit;
     }
 
@@ -189,8 +192,10 @@
         margin-bottom: 50px; /* 增加間距，避免擠壓 mode-time */
       }
       .mode-time {
-        font-size: 22px;
-        margin-bottom: 30px;
+        font-size: 16px;  /* 手機版適應字體 */
+        margin-bottom: 30px;  /* 增加間距，防止擠壓 */
+        padding-bottom: 30px; /* 確保底部空間充足 */
+        line-height: 1.5;  /* 增加行高，防止文字擠壓 */
       }
       .link img {
         width: 120px;/* 縮小圖片，適應手機畫面 */
