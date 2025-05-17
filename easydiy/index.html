@@ -164,6 +164,27 @@
         label.textContent = '日間模式';
       }
     });
+
+    // 自動切換模式根據當地時間
+    function autoDetectMode() {
+      const now = new Date();
+      const hour = now.getHours();
+      
+      // 判斷時間範圍：18:00 - 06:00 為夜間模式，其餘為日間模式
+      if (hour >= 18 || hour < 6) {
+        document.body.classList.add('night');
+        label.textContent = '夜間模式';
+        toggle.checked = true;
+      } else {
+        document.body.classList.remove('night');
+        label.textContent = '日間模式';
+        toggle.checked = false;
+      }
+    }
+    
+    // 執行自動偵測模式
+    autoDetectMode();
+    
   </script>
 </body>
 </html>
