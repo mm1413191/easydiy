@@ -10,11 +10,24 @@
       text-align: center;
       background-color: rgb(0, 0, 0);
       padding: 30px 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     h1 {
       margin-bottom: 30px;
-      font-size: 28px;
     }
+
+    .title-main {
+      font-size: 36px;
+      font-weight: bold;
+      color: #000000;
+      transition: color 0.3s ease;
+    }
+
+    .title-sub {
+      font-size: 20px;
+      color: #555;
+    }
+    
     .link {
       display: inline-block;
       margin: 15px;
@@ -29,33 +42,104 @@
     .link img:hover {
       transform: scale(1.1);
     }
-    .title-main {
-      font-size: 36px;   /* 主標題字體大小 */
-      font-weight: bold;
-      color: black;
+
+    /* 夜間模式樣式 */
+    body.night {
+      background-color: rgb(120, 120, 120);
     }
 
-    .title-sub {
-      font-size: 20px;   /* 副標題字體大小 */
-      color: rgb(255, 87, 51);
+    body.night .title-main {
+      color: white;
+    }
+
+    /* 切換開關 */
+    .mode-toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .mode-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
     }
 
     @media (min-width: 768px) {
+      .link img {
+        width: 120px;
+      }
       .title-main {
-        font-size: 28px;
-    }
-
+        font-size: 48px;
+      }
       .title-sub {
-        font-size: 18px;
-    }
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- 模式切換區 -->
+  <div class="mode-toggle-container">
+    <span class="mode-label" id="modeLabel">日間模式</span>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- 標題 -->
   <h1>
     <span class="title-main">Easy DIY</span><br>
     <span class="title-sub">請點選圖片可前往連結</span>
   </h1>
+
+  <!-- 連結圖片 -->
   <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
     <img src="圖片/2022露天市集New_Logo.png" alt="露天市集">
   </a>
@@ -65,5 +149,21 @@
   <a class="link" href="https://line.me/R/ti/p/@125wydjl" target="_blank">
     <img src="圖片/LINE_logo.svg.png" alt="LINE">
   </a>
+
+  <!-- 切換腳本 -->
+  <script>
+    const toggle = document.getElementById('modeToggle');
+    const label = document.getElementById('modeLabel');
+
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('night');
+        label.textContent = '夜間模式';
+      } else {
+        document.body.classList.remove('night');
+        label.textContent = '日間模式';
+      }
+    });
+  </script>
 </body>
 </html>
