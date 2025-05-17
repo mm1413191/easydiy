@@ -155,16 +155,6 @@
     const toggle = document.getElementById('modeToggle');
     const label = document.getElementById('modeLabel');
     
-    toggle.addEventListener('change', function() {
-      if (this.checked) {
-        document.body.classList.add('night');
-        label.textContent = '夜間模式';
-      } else {
-        document.body.classList.remove('night');
-        label.textContent = '日間模式';
-      }
-    });
-
     // 自動切換模式根據當地時間
     function autoDetectMode() {
       const now = new Date();
@@ -184,6 +174,17 @@
     
     // 執行自動偵測模式
     autoDetectMode();
+    
+    // 手動切換模式
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('night');
+        label.textContent = '夜間模式';
+      } else {
+        document.body.classList.remove('night');
+        label.textContent = '日間模式';
+      }
+    });
     
   </script>
 </body>
