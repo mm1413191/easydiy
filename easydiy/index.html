@@ -26,16 +26,15 @@
     .title-main {
       font-size: 36px;
       font-weight: bold;
-      color: inherit; /* 繼承主體顏色 */
+      color: inherit;
       transition: color 0.3s ease;
     }
     
     .title-sub {
       font-size: 20px;
-      color: inherit;
-      color: rgb(250, 100, 60); /* 手機模式預設顏色 */
+      color: rgb(250, 100, 60);
     }
-    
+
     .link {
       display: inline-block;
       margin: 15px;
@@ -110,6 +109,30 @@
       transform: translateX(26px);
     }
     
+    .mode-time {
+      margin-top: 20px;
+      font-size: 20px;
+      color: inherit;
+    }
+
+    .contact-section {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      z-index: 1000;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.night .contact-section {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
     @media (min-width: 768px) {
       .link img {
         width: 120px;
@@ -119,8 +142,6 @@
       }
       .title-sub {
         font-size: 24px;
-        color: inherit;
-        color: rgb(250, 100, 60); /* 電腦模式顏色 */
       }
     }
   </style>
@@ -154,15 +175,20 @@
 
   <!-- 模式時間顯示區域 -->
   <div class="mode-time">
-      日間模式時間：06:00 - 18:00<br>
-      夜間模式時間：18:00 - 06:00
+    日間模式時間：06:00 - 18:00<br>
+    夜間模式時間：18:00 - 06:00
+  </div>
+
+  <!-- 聯絡我們區域 -->
+  <div class="contact-section">
+    聯絡我們<br>
+    Email: <a href="mailto:easydiy0606@gmail.com">easydiy0606@gmail.com</a>
   </div>
 
   <!-- 切換腳本 -->
   <script>
-    // 取得切換按鈕與標籤的 DOM 元素
-    const toggle = document.getElementById('modeToggle'); // 模式切換按鈕
-    const label = document.getElementById('modeLabel'); // 模式標籤
+    const toggle = document.getElementById('modeToggle');
+    const label = document.getElementById('modeLabel');
 
     /**
      * 自動偵測當前時間並根據時間設定模式
@@ -170,41 +196,33 @@
      * 日間模式時間：06:00 - 18:00
      */
     function autoDetectMode() {
-      const now = new Date(); // 取得當前日期與時間
-      const hour = now.getHours(); // 取得當前小時（24小時制）
+      const now = new Date();
+      const hour = now.getHours();
 
-      // 如果時間是晚上 6 點後或凌晨 6 點前，則啟用夜間模式
       if (hour >= 18 || hour < 6) {
-        document.body.classList.add('night'); // 加入 night class 切換背景顏色與文字顏色
-        label.textContent = '夜間模式'; // 更新顯示的模式標籤為夜間模式
-        toggle.checked = true; // 將切換按鈕設為選中狀態
+        document.body.classList.add('night');
+        label.textContent = '夜間模式';
+        toggle.checked = true;
       } else {
-        // 否則為日間模式
-        document.body.classList.remove('night'); // 移除 night class 恢復日間模式樣式
-        label.textContent = '日間模式'; // 更新顯示的模式標籤為日間模式
-        toggle.checked = false; // 將切換按鈕設為未選中狀態
+        document.body.classList.remove('night');
+        label.textContent = '日間模式';
+        toggle.checked = false;
       }
     }
 
     // 在頁面加載時執行自動偵測模式
     autoDetectMode();
 
-    /**
-     * 監聽切換按鈕的變更事件
-     * 使用者手動切換模式時更新樣式與標籤文字
-     */
+    // 監聽切換按鈕變更事件
     toggle.addEventListener('change', function() {
-      // 當切換按鈕為選中狀態時（夜間模式）
       if (this.checked) {
-        document.body.classList.add('night'); // 切換至夜間模式
-        label.textContent = '夜間模式'; // 更新模式標籤
+        document.body.classList.add('night');
+        label.textContent = '夜間模式';
       } else {
-        // 當切換按鈕為未選中狀態時（日間模式）
-        document.body.classList.remove('night'); // 切換至日間模式
-        label.textContent = '日間模式'; // 更新模式標籤
+        document.body.classList.remove('night');
+        label.textContent = '日間模式';
       }
     });
-    
   </script>
 </body>
 </html>
