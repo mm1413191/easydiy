@@ -116,6 +116,16 @@
       transform: translateX(26px);
     }
 
+    .mode-time {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #1a73e8;
+    }
+
+    body.night .mode-time {
+      color: #4ea8ff;
+    }
+
     .contact-section {
       position: fixed;
       bottom: 0;
@@ -162,6 +172,7 @@
   </style>
 </head>
 <body>
+
   <!-- 模式切換區 -->
   <div class="mode-toggle-container">
     <span class="mode-label" id="modeLabel">日間模式</span>
@@ -179,20 +190,21 @@
 
   <!-- 連結圖片區域 -->
   <div class="link-container">
-    <!-- 蝦皮購物 -->
     <a class="link" href="https://tw.shp.ee/JEXpzek" target="_blank">
       <img src="圖片/images (2).jpeg" alt="蝦皮購物">
     </a>
-
-    <!-- 露天市集 -->
     <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
       <img src="圖片/2022露天市集New_Logo.png" alt="露天市集">
     </a>
-
-    <!-- LINE -->
     <a class="link" href="https://line.me/R/ti/p/@125wydjl" target="_blank">
       <img src="圖片/LINE_logo.svg.png" alt="LINE">
     </a>
+  </div>
+
+  <!-- 模式時間顯示區域 -->
+  <div class="mode-time" id="modeTime">
+    日間模式時間：06:00 - 18:00<br>
+    夜間模式時間：18:00 - 06:00
   </div>
 
   <!-- 聯絡我們區域 -->
