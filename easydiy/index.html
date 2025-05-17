@@ -137,6 +137,10 @@
   <h1>
     <span class="title-main">Easy DIY</span><br>
     <span class="title-sub">請點選圖片可前往連結</span>
+    <div class="time-info">
+      <span class="time-text">日間模式時間：06:00 - 18:00</span><br>
+      <span class="time-text">夜間模式時間：18:00 - 06:00</span>
+    </div>
   </h1>
 
   <!-- 連結圖片 -->
@@ -152,37 +156,48 @@
 
   <!-- 切換腳本 -->
   <script>
-    const toggle = document.getElementById('modeToggle');
-    const label = document.getElementById('modeLabel');
-    
-    // 自動切換模式根據當地時間
+    // 取得切換按鈕與標籤的 DOM 元素
+    const toggle = document.getElementById('modeToggle'); // 模式切換按鈕
+    const label = document.getElementById('modeLabel'); // 模式標籤
+
+    /**
+     * 自動偵測當前時間並根據時間設定模式
+     * 夜間模式時間：18:00 - 06:00
+     * 日間模式時間：06:00 - 18:00
+     */
     function autoDetectMode() {
-      const now = new Date();
-      const hour = now.getHours();
-      
-      // 判斷時間範圍：18:00 - 06:00 為夜間模式，其餘為日間模式
+      const now = new Date(); // 取得當前日期與時間
+      const hour = now.getHours(); // 取得當前小時（24小時制）
+
+      // 如果時間是晚上 6 點後或凌晨 6 點前，則啟用夜間模式
       if (hour >= 18 || hour < 6) {
-        document.body.classList.add('night');
-        label.textContent = '夜間模式';
-        toggle.checked = true;
+        document.body.classList.add('night'); // 加入 night class 切換背景顏色與文字顏色
+        label.textContent = '夜間模式'; // 更新顯示的模式標籤為夜間模式
+        toggle.checked = true; // 將切換按鈕設為選中狀態
       } else {
-        document.body.classList.remove('night');
-        label.textContent = '日間模式';
-        toggle.checked = false;
+        // 否則為日間模式
+        document.body.classList.remove('night'); // 移除 night class 恢復日間模式樣式
+        label.textContent = '日間模式'; // 更新顯示的模式標籤為日間模式
+        toggle.checked = false; // 將切換按鈕設為未選中狀態
       }
     }
-    
-    // 執行自動偵測模式
+
+    // 在頁面加載時執行自動偵測模式
     autoDetectMode();
-    
-    // 手動切換模式
+
+    /**
+     * 監聽切換按鈕的變更事件
+     * 使用者手動切換模式時更新樣式與標籤文字
+     */
     toggle.addEventListener('change', function() {
+      // 當切換按鈕為選中狀態時（夜間模式）
       if (this.checked) {
-        document.body.classList.add('night');
-        label.textContent = '夜間模式';
+        document.body.classList.add('night'); // 切換至夜間模式
+        label.textContent = '夜間模式'; // 更新模式標籤
       } else {
-        document.body.classList.remove('night');
-        label.textContent = '日間模式';
+        // 當切換按鈕為未選中狀態時（日間模式）
+        document.body.classList.remove('night'); // 切換至日間模式
+        label.textContent = '日間模式'; // 更新模式標籤
       }
     });
     
