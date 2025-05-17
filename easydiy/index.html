@@ -127,13 +127,25 @@
       text-align: center;
       z-index: 1000;
       box-sizing: border-box;
-      margin: 0;
       transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-section a {
+      color: #1a73e8; /* 日間模式下的超連結顏色 */
+      text-decoration: none;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
     }
 
     body.night .contact-section {
       background-color: #121212;
       color: #f0f0f0;
+    }
+
+    body.night .contact-section a {
+      color: #4ea8ff; /* 夜間模式下的超連結顏色 */
     }
 
     @media (min-width: 768px) {
@@ -193,11 +205,6 @@
     const toggle = document.getElementById('modeToggle');
     const label = document.getElementById('modeLabel');
 
-    /**
-     * 自動偵測當前時間並根據時間設定模式
-     * 夜間模式時間：18:00 - 06:00
-     * 日間模式時間：06:00 - 18:00
-     */
     function autoDetectMode() {
       const now = new Date();
       const hour = now.getHours();
@@ -213,10 +220,8 @@
       }
     }
 
-    // 在頁面加載時執行自動偵測模式
     autoDetectMode();
 
-    // 監聽切換按鈕變更事件
     toggle.addEventListener('change', function() {
       if (this.checked) {
         document.body.classList.add('night');
