@@ -29,16 +29,33 @@
     .link img:hover {
       transform: scale(1.1);
     }
+    .title-main {
+      font-size: 36px;   /* 主標題字體大小 */
+      font-weight: bold;
+      color: black;
+    }
+
+    .title-sub {
+      font-size: 20px;   /* 副標題字體大小 */
+      color: rgb(255, 87, 51);
+    }
 
     @media (min-width: 768px) {
-      .link img {
-        width: 120px;
-      }
+      .title-main {
+        font-size: 28px;
+    }
+
+      .title-sub {
+        font-size: 18px;
+    }
     }
   </style>
 </head>
 <body>
-  <h1>Easy DIY</h1>
+  <h1>
+    <span class="title-main">EasyDIY</span><br>
+    <span class="title-sub">請點選圖片連結</span>
+  </h1>
   <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
     <img src="圖片/2022露天市集New_Logo.png" alt="露天市集">
   </a>
