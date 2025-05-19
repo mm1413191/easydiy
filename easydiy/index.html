@@ -187,13 +187,73 @@
       color: #4ea8ff; /* 夜間模式下的超連結顏色 */
     }
 
-    <nav id="sideMenu" class="side-menu">
-      <a href="#">首頁</a>
-      <a href="#">關於我們</a>
-      <a href="#">常用連結</a>
-      <a href="#">聯絡方式</a>
-    </nav>
-
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 1001;
+      background-color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    
+    body.night .menu-toggle {
+      background-color: #333;
+      color: #f0f0f0;
+    }
+    
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+    
+    .side-menu a {
+      padding: 15px 20px;
+      width: 100%;
+      text-align: left;
+      text-decoration: none;
+      color: #000000;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s ease;
+    }
+    
+    .side-menu a:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .side-menu.open {
+      left: 0;
+    }
+    
+    body.night .side-menu {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    
+    body.night .side-menu a {
+      color: #f0f0f0;
+    }
+    
+    body.night .side-menu a:hover {
+      background-color: #333333;
+    }
 
     @media (min-width: 768px) {
       .link-container {
@@ -221,6 +281,15 @@
   </style>
 </head>
 <body>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="sideMenu" class="side-menu">
+    <a href="#">首頁</a>
+    <a href="#">關於我們</a>
+    <a href="#">產品列表</a>
+    <a href="#">聯絡方式</a>
+  </nav>
+  
   <!-- 模式切換區 -->
   <div class="mode-toggle-container">
     <span class="mode-label" id="modeLabel">日間模式</span>
@@ -292,6 +361,11 @@
         label.textContent = '日間模式';
       }
     });
+
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      menu.classList.toggle("open");
+    }
   </script>
 </body>
 </html>
