@@ -255,6 +255,19 @@
       background-color: #333333;      /* 更深一點的灰色背景 */
     }
 
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      pointer-events: none;  /* 禁止點擊圖片 */
+    }
+
     @media (min-width: 768px) {
       .link-container {
         margin-bottom: 50px; /* 增加間距，避免擠壓 mode-time */
