@@ -187,72 +187,72 @@
       color: #4ea8ff; /* 夜間模式下的超連結顏色 */
     }
 
-    .menu-toggle {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 28px;
-      cursor: pointer;
-      z-index: 1001;
-      background-color: #fff;
-      padding: 8px 12px;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
+    .menu-toggle {                            /* ☰ 選單按鈕樣式 */
+      position: fixed;                        /* 固定在畫面上不隨滾動條移動 */
+      top: 20px;                              /* 距離畫面上方 20px */
+      left: 20px;                             /* 距離畫面左側 20px */
+      font-size: 28px;                        /* 字體大小，控制 ☰ 大小 */
+      cursor: pointer;                        /* 滑鼠滑過時顯示為手指形狀 */
+      z-index: 1001;                          /* 堆疊順序高，確保在其他元素之上 */
+      background-color: #fff;                 /* 背景顏色為白色（日間模式） */
+      padding: 8px 12px;                      /* 內距：上下8px、左右12px */
+      border-radius: 6px;                     /* 邊角圓角化6px */
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);    /* 陰影效果，柔和浮起感 */
+      transition: background-color 0.3s ease; /* 背景色變化動畫平滑 */
     }
     
-    body.night .menu-toggle {
-      background-color: #333;
-      color: #f0f0f0;
+    body.night .menu-toggle {  /* ☰ 選單按鈕：夜間模式樣式 */
+      background-color: #333;  /* 背景改為深灰 */
+      color: #f0f0f0;          /* 文字改為淺色 */
+    }
+
+    .side-menu {                               /* 側邊選單的主體樣式 */
+      position: fixed;                         /* 固定在畫面上不移動 */
+      top: 0;                                  /* 從頂部開始 */
+      left: -250px;                            /* 預設隱藏在左側畫面外（往左偏移） */
+      width: 220px;                            /* 寬度為 220px */
+      height: 100%;                            /* 高度撐滿整個畫面 */
+      background-color: #ffffff;               /* 背景為白色（日間模式） */
+      color: #000000;                          /* 文字為黑色 */
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);   /* 左側陰影效果 */
+      padding-top: 60px;                       /* 上方留出空間（避免被 ☰ 擋住） */
+      transition: left 0.3s ease;              /* 開關時的滑動動畫 */
+      z-index: 1000;                           /* 比大部分內容更上層，但低於 menu-toggle */
+      display: flex;                           /* 使用 flex 排版 */
+      flex-direction: column;                  /* 垂直方向排列子元素 */
+      align-items: start;                      /* 靠左對齊內容（link） */
+    }
+
+    .side-menu a {                              /* 側邊選單內的每個連結樣式 */
+      padding: 15px 20px;                       /* 內距上下15px、左右20px */
+      width: 100%;                              /* 撐滿整個選單寬度 */
+      text-align: left;                         /* 文字靠左對齊 */
+      text-decoration: none;                    /* 移除超連結底線 */
+      color: #000000;                           /* 文字顏色為黑色 */
+      font-size: 16px;                          /* 字體大小 */
+      border-bottom: 1px solid #eee;            /* 底部分隔線 */
+      transition: background-color 0.2s ease;   /* 背景變色滑順 */
+    }
+
+    .side-menu a:hover {            /* 滑鼠懸停在選單連結時的樣式 */
+      background-color: #f0f0f0;    /* 淡灰色背景，滑鼠懸停效果 */
     }
     
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 220px;
-      height: 100%;
-      background-color: #ffffff;
-      color: #000000;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-      padding-top: 60px;
-      transition: left 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
+    .side-menu.open {          /* 側邊選單打開時（加上 open 類別） */
+      left: 0;                 /* 將選單拉出來顯示在畫面上 */
     }
     
-    .side-menu a {
-      padding: 15px 20px;
-      width: 100%;
-      text-align: left;
-      text-decoration: none;
-      color: #000000;
-      font-size: 16px;
-      border-bottom: 1px solid #eee;
-      transition: background-color 0.2s ease;
+    body.night .side-menu {       /* 側邊選單在夜間模式下的背景與文字顏色 */
+      background-color: #121212;  /* 深色背景 */
+      color: #f0f0f0;             /* 淺色文字 */
     }
     
-    .side-menu a:hover {
-      background-color: #f0f0f0;
+    body.night .side-menu a {    /* 夜間模式下的連結文字顏色 */
+      color: #f0f0f0;            /* 變成淺色文字，避免黑底黑字看不見 */
     }
     
-    .side-menu.open {
-      left: 0;
-    }
-    
-    body.night .side-menu {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-    
-    body.night .side-menu a {
-      color: #f0f0f0;
-    }
-    
-    body.night .side-menu a:hover {
-      background-color: #333333;
+    body.night .side-menu a:hover {   /* 夜間模式下滑鼠懸停的背景效果 */
+      background-color: #333333;      /* 更深一點的灰色背景 */
     }
 
     @media (min-width: 768px) {
