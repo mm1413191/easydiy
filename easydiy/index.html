@@ -255,6 +255,39 @@
       background-color: #333333;      /* 更深一點的灰色背景 */
     }
 
+    .image-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* 區塊間距 */
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .top-row {
+      display: flex;
+      gap: 20px;
+    }
+  
+    .top-row a, .bottom a {
+      flex: 1;
+      text-align: center;
+    }
+  
+    .top-row img, .bottom img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .bottom a {
+      max-width: 100%;
+    }
+
     @media (min-width: 768px) {
       .link-container {
         margin-bottom: 50px; /* 增加間距，避免擠壓 mode-time */
@@ -301,18 +334,27 @@
 
   <!-- 標題 -->
   <h1>
-    <span class="title-main">Easy DIY<br>其他購物平台</span><br>
+    <span class="title-main">Easy DIY<br>其他平台</span><br>
     <span class="title-sub">請點選圖片可前往連結</span>
   </h1>
 
-  <!-- 連結圖片區域 -->
-  <div class="link-container">
-    <a class="link" href="https://tw.shp.ee/JEXpzek" target="_blank">
-      <img src="圖片/LOGO/蝦皮.jpeg" alt="蝦皮購物">
-    </a>
-    <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
-      <img src="圖片/LOGO/露天.jpg" alt="露天市集">
-    </a>
+  <div class="image-grid">
+    <!-- 上面兩個圖片（蝦皮與露天） -->
+    <div class="top-row">
+        <a class="link" href="https://tw.shp.ee/JEXpzek" target="_blank">
+        <img src="圖片/LOGO/蝦皮.jpeg" alt="蝦皮購物">
+      </a>
+        <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
+        <img src="圖片/LOGO/露天.jpg" alt="露天市集">
+      </a>
+    </div>
+  
+    <!-- 底下的 YouTube 圖片 -->
+    <div class="bottom">
+      <a class="link" href="https://youtube.com/@easydiy-l4i?si=x3PlRf3MNEE7PGny" target="_blank">
+        <img src="圖片/LOGO/youtube.jpg" alt="youtube">
+      </a>
+    </div>
   </div>
 
   <!-- 模式時間顯示區域 -->
