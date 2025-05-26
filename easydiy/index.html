@@ -260,30 +260,25 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      margin-bottom: 30px; /* 原來 40px → 改為 30px */
+      margin-bottom: 30px;
     }
     
-    .top-row {
+    .top-row, .bottom-row {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
     
-    .bottom-row {
-      display: flex;
-      justify-content: center;
-    }
-    
     .image-grid img {
-      width: 120px; /* 原來沒變，但你要求手機版從 100px 改成 120px */
+      width: 120px;
       height: auto;
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
     
     .image-grid img:hover {
-      transform: scale(1.1); /* 原來 1.05 → 改為 1.1 */
+      transform: scale(1.1);
     }
 
     @media (min-width: 768px) {
@@ -309,14 +304,19 @@
         font-size: 14px;  /* 調整字體大小 */
       }
       .top-row {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
       }
     
       .top-row img {
         width: 120px;
       }
-    
+
+      .bottom-row {
+        justify-content: center;
+      }
+      
       .image-grid img {
         width: 120px; /* 原來 100px → 改為 120px */
       }
@@ -356,11 +356,11 @@
       </a>
         <a class="link" href="https://www.ruten.com.tw/store/easy_diy/" target="_blank">
         <img src="圖片/LOGO/露天.jpg" alt="露天市集">
-      </a><br>
+      </a>
     </div>
   
     <!-- 底下的 YouTube 圖片 -->
-    <div class="bottom">
+    <div class="bottom-row">
       <a class="link" href="https://youtube.com/@easydiy-l4i?si=x3PlRf3MNEE7PGny" target="_blank">
         <img src="圖片/LOGO/youtube.jpg" alt="youtube">
       </a>
