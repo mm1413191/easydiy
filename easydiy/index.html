@@ -258,34 +258,34 @@
     .image-grid {
       display: flex;
       flex-direction: column;
-      gap: 20px; /* 區塊間距 */
-      max-width: 600px;
-      margin: auto;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 40px;
     }
-
+    
     .top-row {
       display: flex;
       gap: 20px;
-    }
-  
-    .top-row a, .bottom a {
-      flex: 1;
-      text-align: center;
-    }
-  
-    .top-row img, .bottom img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .bottom {
-      display: flex;
       justify-content: center;
     }
-  
-    .bottom a {
-      max-width: 100%;
+    
+    .top-row a, .bottom-row a {
+      display: inline-block;
+    }
+    
+    .top-row img, .bottom-row img {
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    
+    .top-row img:hover, .bottom-row img:hover {
+      transform: scale(1.05);
+    }
+    
+    .bottom-row {
+      text-align: center;
     }
 
     @media (min-width: 768px) {
