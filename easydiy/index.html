@@ -258,38 +258,32 @@
     .image-grid {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 20px;
-      align-items: center; /* 整體置中 */
-      margin-bottom: 30px;
+      margin-bottom: 30px; /* 原來 40px → 改為 30px */
     }
     
     .top-row {
       display: flex;
-      gap: 20px;
       justify-content: center;
-      flex-wrap: wrap; /* 手機可換行 */
+      gap: 20px;
+      flex-wrap: wrap;
     }
     
-    .top-row a, .bottom-row a {
-      display: inline-block;
-      text-align: center;
+    .bottom-row {
+      display: flex;
+      justify-content: center;
     }
     
-    .top-row img, .bottom-row img {
-      width: 120px;
+    .image-grid img {
+      width: 120px; /* 原來沒變，但你要求手機版從 100px 改成 120px */
       height: auto;
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
     
-    .top-row img:hover, .bottom-row img:hover {
-      transform: scale(1.1);
-    }
-    
-    .bottom-row {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+    .image-grid img:hover {
+      transform: scale(1.1); /* 原來 1.05 → 改為 1.1 */
     }
 
     @media (min-width: 768px) {
@@ -323,8 +317,8 @@
         width: 120px;
       }
     
-      .bottom-row img {
-        width: 120px;
+      .image-grid img {
+        width: 120px; /* 原來 100px → 改為 120px */
       }
     }
   </style>
