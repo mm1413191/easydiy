@@ -259,7 +259,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      align-items: center;
+      align-items: center; /* 整體置中 */
       margin-bottom: 40px;
     }
     
@@ -267,10 +267,12 @@
       display: flex;
       gap: 20px;
       justify-content: center;
+      flex-wrap: wrap; /* 手機可換行 */
     }
     
     .top-row a, .bottom-row a {
       display: inline-block;
+      text-align: center;
     }
     
     .top-row img, .bottom-row img {
@@ -281,11 +283,13 @@
     }
     
     .top-row img:hover, .bottom-row img:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     
     .bottom-row {
-      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     @media (min-width: 768px) {
@@ -309,6 +313,18 @@
       }
       .link span {
         font-size: 14px;  /* 調整字體大小 */
+      }
+      .top-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .top-row img {
+        width: 100px;
+      }
+    
+      .bottom-row img {
+        width: 100px;
       }
     }
   </style>
