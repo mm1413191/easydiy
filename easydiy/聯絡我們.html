@@ -268,6 +268,32 @@
       pointer-events: none;  /* 禁止點擊圖片 */
     }-->
 
+    .image-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .top-row, .bottom-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .image-grid img {
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-grid img:hover {
+      transform: scale(1.1);
+    }
+
     @media (min-width: 768px) {
       .link-container {
         margin-bottom: 50px; /* 增加間距，避免擠壓 mode-time */
@@ -289,6 +315,23 @@
       }
       .link span {
         font-size: 14px;  /* 調整字體大小 */
+      }
+      .top-row {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    
+      .top-row img {
+        width: 120px;
+      }
+
+      .bottom-row {
+        justify-content: center;
+      }
+      
+      .image-grid img {
+        width: 120px; /* 原來 100px → 改為 120px */
       }
     }
   </style>
@@ -318,18 +361,25 @@
     <span class="title-sub">請點選圖片可前往連結</span>
   </h1>
 
-  <!-- 連結圖片區域 -->
+  <!-- 上面兩個圖片-->
   <div class="link-container">
-    <a class="link" href="mailto:easydiy0606@gmail.com" target="_blank">
-      <img src="圖片/LOGO/Gmail.jpg" alt="Gmail">
+    <a class="link" href="https://www.facebook.com/share/1AUeo23LKK/" target="_blank">
+      <img src="圖片/LOGO/FB.jpg" alt="FB">
     </a>
-    <a class="link" href="https://line.me/R/ti/p/@125wydjl" target="_blank">
-      <img src="圖片/LOGO/LINE.png" alt="LINE">
+    <a class="link" href="https://www.instagram.com/easy_diy.ig?igsh=MXUxNjQ2NnRtbWFlbw==" target="_blank">
+      <img src="圖片/LOGO/IG.jpg" alt="IG">
     </a>
-    <!--<div>
-      <img src="https://script.google.com/macros/s/AKfycbx04dSDrpIAFLpApvz3ii7WyyLV327uppTL19DCD_3Z59lYkAJCkgWC_zig2v7iJsS_MA/exec?id=1uwV0stftv78aUOUV5jy57a3hLsYliVfb" alt="測試圖片">
-    </div>-->
   </div>
+
+  <!--底下兩個圖片-->
+    <div class="bottom-row">
+      <a class="link" href="mailto:easydiy0606@gmail.com" target="_blank">
+        <img src="圖片/LOGO/Gmail.jpg" alt="Gmail">
+      </a>
+      <a class="link" href="https://line.me/R/ti/p/@125wydjl" target="_blank">
+        <img src="圖片/LOGO/LINE.png" alt="LINE">
+      </a>
+    </div>
 
   <script>
     document.cookie = "my_cookie=cookie_value; path=/; expires=" + new Date(new Date().getTime() + 3600 * 1000).toUTCString() + "; samesite=None; secure";
